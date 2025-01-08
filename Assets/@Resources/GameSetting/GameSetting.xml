@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<setting>
+	<gravityScale>.1</gravityScale>
+	<PlayerHp>3</PlayerHp>
+	<PlayerSpeed>5</PlayerSpeed>
+	<ThrowingPower>3</ThrowingPower>
+</setting>
