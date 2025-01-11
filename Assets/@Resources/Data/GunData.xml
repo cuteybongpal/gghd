@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Gun>
+	<Speed>2</Speed>
+	<JumpPower>3</JumpPower>
+	<ShotCoolDown>5</ShotCoolDown>
+	
+</Gun>

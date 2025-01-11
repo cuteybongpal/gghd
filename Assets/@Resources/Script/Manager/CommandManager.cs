@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class CommandManager : MonoBehaviour
 {
+    #region 싱글톤 코드
     private static CommandManager instance = null;
     public static CommandManager Instance { get { return instance; } }
 
@@ -21,7 +22,10 @@ public class CommandManager : MonoBehaviour
             Manager.Instance.ResourceManager.LoadAllAsync<TextAsset>("PreLoad(Data)", () =>
             {
                 Manager.Instance.DataManager.Init();
-                EventManager.AssetAllLoading?.Invoke();
+                Manager.Instance.ResourceManager.LoadAllAsync<GameObject>("PreLoad(Prefab)", () =>
+                {
+                    EventManager.AssetAllLoading?.Invoke();
+                });
             });
 
         }
@@ -30,11 +34,10 @@ public class CommandManager : MonoBehaviour
             Destroy(instance);
         }
     }
-
-    //반환타입이 없는 명령실행 메소드
+    #endregion
     
-    //반환타입이 있는 명령실행 메소드
-    public T ExecuteCommand<T>(ICommand command, string data) where T : UnityEngine.Object
+    //ICommand 인터페이스를 상속받는 클래스를 파라미터로 넣어주고, ICommand의 Execute함수를 실행시켜준다.
+    public T ExecuteCommand<T>(ICommand command) where T : UnityEngine.Object
     {
         
         if (command == null)
@@ -42,33 +45,64 @@ public class CommandManager : MonoBehaviour
             Debug.LogError("Invalid command");
             return default;
         }
-        return command.Execute<T>(data);
+        return command.Execute<T>();
     }
 }
 
 public class Load : ICommand
 {
     //ResourceManager에서 오브젝트를 가져오는 메소드
-    public T Execute<T>(string key) where T : UnityEngine.Object
+    string key;
+    public T Execute<T>() where T : UnityEngine.Object
     {
         T loadedobject = Manager.Instance.ResourceManager.Load<T>(key);
         return loadedobject as T;
+    }
+    public Load(string _key)
+    {
+        key = _key;
     }
 }
 public class Spawn : ICommand
 {
     //ObjectManager에서 스폰해주는 코드 
-    public T Execute<T>(string key) where T : UnityEngine.Object
+    string key;
+    public T Execute<T>() where T : UnityEngine.Object
     {
         //todo : 오브젝트 매니저 만들기, 생성해주는 코드 만들기
-        return default(T);
+        T Object = Manager.Instance.ObjectManager.Spawn<T>(key);
+        return Object;
+    }
+    public Spawn(string _key)
+    {
+        key = _key;
     }
 }
-public class GetGameData : ICommand
+public class PlaySound : ICommand
 {
-    //데이터 매니저에 있는 값들을 가져옴
-    public T Execute<T>(string data) where T : UnityEngine.Object
+    //키값
+    string key;
+    //배경음인지 아닌지
+    bool isBG;
+    //소리를 틀어줄 위치
+    Vector3 pos;
+    //소리를 틀어준다.
+    public T Execute<T>() where T : UnityEngine.Object
     {
-        return 10 as T;
+        if (isBG)
+        {
+            Manager.Instance.SoundManager.PlayBG(key);
+        }
+        else
+        {
+            Manager.Instance.SoundManager.PlaySoundEffect(key, pos);
+        }
+        return default(T);
+    }
+    public PlaySound(string _key, bool _isBG, Vector3 pos)
+    {
+        key = _key;
+        isBG = _isBG;
+        this.pos = pos;
     }
 }

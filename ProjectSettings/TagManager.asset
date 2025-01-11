@@ -5,14 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - CatchableObject
+  - HatPos
+  - Hat
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - switch
   - Water
   - UI
-  - 
+  - checkArea
   - 
   - 
   - 

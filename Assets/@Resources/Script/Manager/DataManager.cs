@@ -8,29 +8,70 @@ using UnityEngine;
 
 public class DataManager
 {
-    public static GameSettings settingData;
+    public static GameSettings Setting;
+    public static GameData GameData = new GameData();
+    
     public void Init()
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(GameSettings));
-        using (StringReader stringReader = new StringReader(CommandManager.Instance.ExecuteCommand<TextAsset>(new Load(), "GameSetting.data").ToString()))
+        Setting = ReadData<GameSettings>("GameSetting.data");
+        GameData.FrogData = ReadData<FrogData>("FrogData.data");
+        GameData.GunData = ReadData<GunData>("GunData.data");
+        GameData.SlimeData = ReadData<SlimeData>("SlimeData.data");
+    }
+    T ReadData<T>(string key) where T : class
+    {
+        XmlSerializer serializer = new XmlSerializer(typeof(T));
+        using (StringReader stringReader = new StringReader(CommandManager.Instance.ExecuteCommand<TextAsset>(new Load(key)).ToString()))
         {
-            settingData = (GameSettings)serializer.Deserialize(stringReader);
+            T data = (T)serializer.Deserialize(stringReader);
+            return data as T;
         }
     }
 }
-
+public class GameData
+{
+    public FrogData FrogData;
+    public SlimeData SlimeData;
+    public GunData GunData;
+}
 [XmlRoot("setting")]
 public class GameSettings
 {
     [XmlElement("gravityScale")]
     public float GravityScale { get; set; }
 
-    [XmlElement("PlayerHp")]
-    public int PlayerHp { get; set; }
-
-    [XmlElement("PlayerSpeed")]
-    public float PlayerSpeed { get; set; }
-
     [XmlElement("ThrowingPower")]
     public float ThrowingPower { get; set; }
+
+    [XmlElement("HatThrowingPower")]
+    public float HatThrowingPower { get; set; }
+
+    [XmlElement("Volume")]
+    public float Volume;
+}
+[XmlRoot("Frog")]
+public class FrogData
+{
+    [XmlElement("Speed")]
+    public float Speed;
+    [XmlElement("MaxJumpPower")]
+    public float MaxJumpPower;
+    [XmlElement("TongueSpeed")]
+    public float TongueSpeed;
+}
+[XmlRoot("Slime")]
+public class SlimeData
+{
+    [XmlElement("Speed")]
+    public float Speed;
+    [XmlElement("JumpPower")]
+    public float JumpPower;
+}
+[XmlRoot("Gun")]
+public class GunData
+{
+    [XmlElement("Speed")]
+    public float Speed;
+    [XmlElement("MaxPower")]
+    public float MaxJumpPower;
 }

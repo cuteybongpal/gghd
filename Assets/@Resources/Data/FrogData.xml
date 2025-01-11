@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Frog>
+	<Speed>3</Speed>
+	<MaxJumpPower>10</MaxJumpPower>
+	<TongueSpeed>20</TongueSpeed>
+</Frog>
