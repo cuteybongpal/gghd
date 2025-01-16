@@ -7,6 +7,7 @@ TagManager:
   - CatchableObject
   - HatPos
   - Hat
+  - Wall
   layers:
   - Default
   - TransparentFX

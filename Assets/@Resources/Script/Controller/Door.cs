@@ -29,7 +29,6 @@ public class Door : MonoBehaviour, IInteractable
     // 문을 닫는 상호작용이 호출될 때 실행
     public void DeInteract()
     {
-        Debug.Log("문 닫힘.");
         _isOpen = false;
         Close();
     }
@@ -37,7 +36,6 @@ public class Door : MonoBehaviour, IInteractable
     // 문을 여는 상호작용이 호출될 때 실행
     public void Interact()
     {
-        Debug.Log("문 열림.");
         _isOpen = true;
         Open();
     }

@@ -69,13 +69,38 @@ public class Spawn : ICommand
     string key;
     public T Execute<T>() where T : UnityEngine.Object
     {
-        //todo : 오브젝트 매니저 만들기, 생성해주는 코드 만들기
-        T Object = Manager.Instance.ObjectManager.Spawn<T>(key);
-        return Object;
+        //todo : 오브젝트 매니저 만들기, 생성해주는 코드 
+        if (typeof(T) == typeof(AudioSource))
+            return Manager.Instance.ObjectManager.Audios.Spawn(key) as T;
+        else if (typeof(T) == typeof(Tongue))
+            return Manager.Instance.ObjectManager.Tongues.Spawn(key) as T;
+        return default(T);
+        
     }
     public Spawn(string _key)
     {
         key = _key;
+    }
+}
+public class DeSpawn<T> : ICommand where T : UnityEngine.Object
+{
+    T element;
+    public J Execute<J>() where J : UnityEngine.Object
+    {
+        Type type = typeof(T);
+        if (type == typeof(AudioSource))
+        {
+            Manager.Instance.ObjectManager.Audios.DeSpawn(element as AudioSource);
+        }
+        else if (type == typeof(Tongue))
+        {
+            Manager.Instance.ObjectManager.Tongues.DeSpawn(element as Tongue);
+        }
+        return default(J);
+    }
+    public DeSpawn(T element)
+    {
+        this.element = element;
     }
 }
 public class PlaySound : ICommand

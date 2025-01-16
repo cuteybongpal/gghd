@@ -21,7 +21,7 @@ public class SoundManager
             _audioBG.spatialBlend = 0;
         }
 
-        AudioClip clip = CommandManager.Instance.ExecuteCommand<AudioClip>(new Load(key));
+        AudioClip clip = Manager.Instance.ResourceManager.Load<AudioClip>(key);
         _audioBG.clip = clip;
         _audioBG.Play();
 

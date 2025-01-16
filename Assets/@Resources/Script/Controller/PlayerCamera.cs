@@ -11,7 +11,7 @@ public class PlayerCamera : MonoBehaviour
 
     private float rotSensitive = 3f;//카메라 회전 감도
     private float dis = 10f;//카메라와 플레이어사이의 거리
-    private float RotationMin = -20f;//카메라 회전각도 최소
+    private float RotationMin = -80f;//카메라 회전각도 최소
     private float RotationMax = 80f;//카메라 회전각도 최대
     private float smoothTime = 0.12f;//카메라가 회전하는데 걸리는 시간
     //위 5개의 value는 개발자의 취향껏 알아서 설정해주자
@@ -48,7 +48,7 @@ public class PlayerCamera : MonoBehaviour
         }
         if (collisionPos != Vector3.zero)
         {
-            transform.position = collisionPos - (transform.position - (target.position + Vector3.up * 2)).normalized * 0.2f;
+            transform.position = collisionPos - (transform.position - (target.position + Vector3.up * 2)).normalized * 0.4f;
         }
         //카메라의 위치는 플레이어보다 설정한 값만큼 떨어져있게 계속 변경된다.
     }

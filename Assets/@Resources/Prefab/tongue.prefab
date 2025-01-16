@@ -77,9 +77,6 @@ PrefabInstance:
       addedObject: {fileID: 8598559019581462451}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b4b09e6599de02f4c99c25c61133aae6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5011531611983020407}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b4b09e6599de02f4c99c25c61133aae6, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4530543688796122844}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b4b09e6599de02f4c99c25c61133aae6, type: 3}
       insertIndex: -1
@@ -117,30 +114,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!145 &5011531611983020407
-SpringJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964178734640185634}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 5.2638617, y: 0.26786482, z: 6.8173094}
-  serializedVersion: 2
-  m_Spring: 10
-  m_Damper: 0.2
-  m_MinDistance: 10
-  m_MaxDistance: 15
-  m_Tolerance: 0.025
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!65 &4530543688796122844
 BoxCollider:
   m_ObjectHideFlags: 0

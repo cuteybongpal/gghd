@@ -58,6 +58,8 @@ public class FrogData
     public float MaxJumpPower;
     [XmlElement("TongueSpeed")]
     public float TongueSpeed;
+    [XmlElement("TongueRange")]
+    public float TongueRange;
 }
 [XmlRoot("Slime")]
 public class SlimeData

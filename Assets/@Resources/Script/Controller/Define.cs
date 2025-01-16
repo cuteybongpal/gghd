@@ -14,7 +14,8 @@ public class Define
     {
         Damaged,
         Appear,
-        Disappear
+        Disappear,
+        Attach
     }
     public static float DELTATIME = 0.01f;
 }

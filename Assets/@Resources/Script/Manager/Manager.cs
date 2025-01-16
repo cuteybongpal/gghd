@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Manager  
 {
@@ -15,4 +13,5 @@ public class Manager
     public SoundManager SoundManager = new SoundManager();
     //스폰과 디스폰을 해주는 클래스
     public ObjectManager ObjectManager = new ObjectManager();
+
 }

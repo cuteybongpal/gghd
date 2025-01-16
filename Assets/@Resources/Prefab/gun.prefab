@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: gun
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db22bf4f16c9b6042b3c2c05dd1f501a, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: db22bf4f16c9b6042b3c2c05dd1f501a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
