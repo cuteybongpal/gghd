@@ -2,4 +2,5 @@
 <Slime>
 	<Speed>3</Speed>
 	<JumpPower>5</JumpPower>
+	<ThrowingCooldown>3</ThrowingCooldown>
 </Slime>

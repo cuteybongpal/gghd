@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
+    public PlayerController _player;
     public GameObject HatPos;
+    public Define.Creature CreatureType;
     public virtual void MoveFoward()
     {
 
@@ -25,8 +27,9 @@ public class Creature : MonoBehaviour
     {
 
     }
-    public virtual void UseAbillity()
+    //사용 불가가 될 시 true반환
+    public virtual bool UseAbillity()
     {
-
+        return true;
     }
 }

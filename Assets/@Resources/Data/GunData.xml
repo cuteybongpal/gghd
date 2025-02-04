@@ -2,6 +2,7 @@
 <Gun>
 	<Speed>2</Speed>
 	<JumpPower>3</JumpPower>
-	<ShotCoolDown>5</ShotCoolDown>
-	
+	<ShotCoolDown>1</ShotCoolDown>
+	<ShotSpeed>5</ShotSpeed>
+	<BulletRange>10</BulletRange>
 </Gun>

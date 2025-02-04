@@ -12,10 +12,23 @@ public class Define
     }
     public enum NotifyEvent
     {
-        Damaged,
+        ChangeBody,
+        UseAbillity,
         Appear,
         Disappear,
         Attach
     }
-    public static float DELTATIME = 0.01f;
+    public enum Creature
+    {
+        Slime,
+        Frog,
+        Gun
+    }
+    public enum CreatureSkill
+    {
+        ThrowingObject,
+        ShootTongue,
+        ShootBullet,
+        RewindObject
+    }
 }

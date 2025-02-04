@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Tongue : MonoBehaviour, ISubject
 {
-    SpringJoint _joint;
     Vector3 _originPos;
     Rigidbody _rb;
     Creature _owner;
@@ -15,20 +14,16 @@ public class Tongue : MonoBehaviour, ISubject
     {
         _owner = owner;
         RegisterObserver(owner as IObserver);
+        _rb = GetComponent<Rigidbody>();
+        _rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
     public void shoot(Vector3 dir)
     {
         _originPos = transform.position;
-        _rb = GetComponent<Rigidbody>();
-
-        float angley = Mathf.Asin(dir.y);
-        float anglex = Mathf.Asin(dir.x);
 
         transform.LookAt(transform.position + dir);
         transform.Rotate(90, 0, 0);
         _rb.velocity = dir * DataManager.GameData.FrogData.TongueSpeed;
-        _joint = GetComponent<SpringJoint>();
-        _joint.spring = 0;
         CheckDistance().Forget();
     }
 
@@ -51,7 +46,11 @@ public class Tongue : MonoBehaviour, ISubject
         if (other.CompareTag("Player"))
             return;
         if (other.CompareTag("Wall"))
+        {
             NotifyObserver(Define.NotifyEvent.Attach, null);
+            _rb.velocity = Vector3.zero;
+            _rb.constraints = RigidbodyConstraints.FreezePosition;
+        }
     }
 
     public void RegisterObserver(IObserver observer)

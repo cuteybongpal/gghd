@@ -29,6 +29,36 @@ MonoBehaviour:
     m_SerializedLabels:
     - PreLoad(Prefab)
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e42e2ec63ff3b5c459eb874cf5036438
+    m_Address: bullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad(Prefab)
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5d9231808899304c93a2e19ccf946a6
+    m_Address: Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad(Prefab)
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afa0a326fb0ec2841989086308df4cd8
+    m_Address: Slime.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad(Prefab)
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 641be850f3d0860448308b846f5900e3
+    m_Address: Gun.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad(Prefab)
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e174f8e8eaca2ae4f945bdeb8bdb8e6e
+    m_Address: Frog.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad(Prefab)
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c6a29ac2f93f1ea4d9fb83f8b81a0d9d, type: 2}
   m_SchemaSet:

@@ -3,5 +3,6 @@
 	<Speed>3</Speed>
 	<MaxJumpPower>10</MaxJumpPower>
 	<TongueSpeed>20</TongueSpeed>
-	<TongueRange>10</TongueRange>
+	<TongueRange>20</TongueRange>
+	<AbillityCooldown>5</AbillityCooldown>
 </Frog>

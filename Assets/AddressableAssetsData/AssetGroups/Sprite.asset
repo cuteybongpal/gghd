@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Sprite
+  m_EditorClassIdentifier: 
+  m_GroupName: Sprite
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 83cea34f807c9154e91e2148c1a458c0
+  m_SerializeEntries:
+  - m_GUID: 3cc94c0f1542365428e76132f7f5bd3f
+    m_Address: slime.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad(Sprite)
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4056cba319de4384bb3a3bdf40b42dc0
+    m_Address: frog.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad(Sprite)
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5177dc460f6081b4d822ec2436989ac4
+    m_Address: gun.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad(Sprite)
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c6a29ac2f93f1ea4d9fb83f8b81a0d9d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 86650eb2b1591154ea27a6a04dac7ee4, type: 2}
+    - {fileID: 11400000, guid: 10cf02fef8679174cb69673b71705560, type: 2}

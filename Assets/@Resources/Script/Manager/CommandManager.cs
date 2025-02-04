@@ -19,12 +19,15 @@ public class CommandManager : MonoBehaviour
             
             instance = this;
             DontDestroyOnLoad(gameObject);
-            Manager.Instance.ResourceManager.LoadAllAsync<TextAsset>("PreLoad(Data)", () =>
+            Manager.Instance.ResourceManager.LoadAllAsync<Sprite>("PreLoad(Sprite)", () =>
             {
-                Manager.Instance.DataManager.Init();
-                Manager.Instance.ResourceManager.LoadAllAsync<GameObject>("PreLoad(Prefab)", () =>
+                Manager.Instance.ResourceManager.LoadAllAsync<TextAsset>("PreLoad(Data)", () =>
                 {
-                    EventManager.AssetAllLoading?.Invoke();
+                    Manager.Instance.DataManager.Init();
+                    Manager.Instance.ResourceManager.LoadAllAsync<GameObject>("PreLoad(Prefab)", () =>
+                    {
+                        EventManager.AssetAllLoading?.Invoke();
+                    });
                 });
             });
 
@@ -74,6 +77,18 @@ public class Spawn : ICommand
             return Manager.Instance.ObjectManager.Audios.Spawn(key) as T;
         else if (typeof(T) == typeof(Tongue))
             return Manager.Instance.ObjectManager.Tongues.Spawn(key) as T;
+        else if (typeof(T) == typeof(Bullet))
+            return Manager.Instance.ObjectManager.Bullets.Spawn(key) as T;
+        else if (typeof(T) == typeof(PlayerController))
+            return Manager.Instance.ObjectManager.Player.Spawn(key) as T;
+        else if (typeof(T).BaseType == typeof(UI_Base))
+            return Manager.Instance.ObjectManager.UIs.Spawn<UI_Base>(key) as T;
+        else if (typeof(T) == typeof(Slime))
+            return Manager.Instance.ObjectManager.Slimes.Spawn(key) as T;
+        else if (typeof(T) == typeof(Gun))
+            return Manager.Instance.ObjectManager.Guns.Spawn(key) as T;
+        else if (typeof(T) == typeof(Frog))
+            return Manager.Instance.ObjectManager.Frogs.Spawn(key) as T;
         return default(T);
         
     }
@@ -89,13 +104,11 @@ public class DeSpawn<T> : ICommand where T : UnityEngine.Object
     {
         Type type = typeof(T);
         if (type == typeof(AudioSource))
-        {
             Manager.Instance.ObjectManager.Audios.DeSpawn(element as AudioSource);
-        }
         else if (type == typeof(Tongue))
-        {
             Manager.Instance.ObjectManager.Tongues.DeSpawn(element as Tongue);
-        }
+        else if (type == typeof(Bullet))
+            Manager.Instance.ObjectManager.Bullets.DeSpawn(element as Bullet);
         return default(J);
     }
     public DeSpawn(T element)

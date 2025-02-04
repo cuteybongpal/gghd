@@ -48,6 +48,8 @@ public class GameSettings
 
     [XmlElement("Volume")]
     public float Volume;
+    [XmlElement("RewindCooldown")]
+    public float RewindCooldown;
 }
 [XmlRoot("Frog")]
 public class FrogData
@@ -60,6 +62,8 @@ public class FrogData
     public float TongueSpeed;
     [XmlElement("TongueRange")]
     public float TongueRange;
+    [XmlElement("AbillityCooldown")]
+    public float AbillityCooldown;
 }
 [XmlRoot("Slime")]
 public class SlimeData
@@ -68,12 +72,21 @@ public class SlimeData
     public float Speed;
     [XmlElement("JumpPower")]
     public float JumpPower;
+    [XmlElement("ThrowingCooldown")]
+    public float ThrowingCooldown;
 }
 [XmlRoot("Gun")]
 public class GunData
 {
     [XmlElement("Speed")]
     public float Speed;
-    [XmlElement("MaxPower")]
-    public float MaxJumpPower;
+    [XmlElement("JumpPower")]
+    public float JumpPower;
+    [XmlElement("ShotCoolDown")]
+    public float ShotCoolDown;
+    [XmlElement("ShotSpeed")]
+    public float ShotSpeed;
+    [XmlElement("BulletRange")]
+    public float BulletRange;
+
 }

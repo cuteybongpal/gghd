@@ -3,5 +3,6 @@
 	<gravityScale>5</gravityScale>
 	<ThrowingPower>3</ThrowingPower>
 	<HatThrowingPower>20</HatThrowingPower>
-	<Volumee>0.5</Volumee>
+	<Volume>0.5</Volume>
+	<RewindCooldown>10</RewindCooldown>
 </setting>

@@ -8,6 +8,7 @@ TagManager:
   - HatPos
   - Hat
   - Wall
+  - BreakableObject
   layers:
   - Default
   - TransparentFX
